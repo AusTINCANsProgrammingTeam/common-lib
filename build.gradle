@@ -59,6 +59,10 @@ dependencies {
     simulation wpi.deps.sim.gui(wpi.platforms.desktop, false)
     simulation wpi.deps.sim.driverstation(wpi.platforms.desktop, false)
 
+    // Note this version is out of date from REV Robotics 1.5.2
+    implementation "net.thefletcher:SparkMaxSim-java:1.5.1"
+
+
     // Websocket extensions require additional configuration.
     // simulation wpi.deps.sim.ws_server(wpi.platforms.desktop, false)
     // simulation wpi.deps.sim.ws_client(wpi.platforms.desktop, false)
@@ -76,4 +80,7 @@ sim {
 jar {
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     manifest edu.wpi.first.gradlerio.GradleRIOPlugin.javaManifest(ROBOT_MAIN_CLASS)
+}
+repositories {
+  maven { url 'https://jitpack.io' }
 }
